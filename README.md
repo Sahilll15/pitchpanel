@@ -1,6 +1,26 @@
 # PitchPanel
 
+Put your startup pitch in front of five investor archetypes before the real meeting.
+
+**Live demo:** https://pitchpanel.vercel.app
+
+![PitchPanel demo: a pitch scored by five judges with ring gauges, verdicts and a saved version list](docs/demo.gif)
+
+## How it works
+
 Paste a startup pitch and a panel of five investor archetypes scores it: The Operator, The Market Hawk, The Skeptic, The Product Nerd and The Numbers Person. Each judge is a set of typed questions sent to TypeSafe's Jev with that judge's lens in the state. Every judge rates ten criteria on a four step ladder (score questions) and answers two booleans: would they take a second meeting, and is there a red flag. A sixth call checks the basics, like whether the pitch has numbers or a stated ask. Jev only returns numbers. The app turns them into judge scores, in / maybe / pass verdicts, a criteria by judge heatmap and templated advice for the weakest criteria. Past pitches stay in your browser, and running the same name again saves a new version you can compare.
+
+## Screenshots
+
+![PitchPanel home: saved pitch list, sample pitches and the pitch form](docs/home.webp)
+
+![PitchPanel result: panel score 77, four of five second meetings and five judge cards](docs/result.webp)
+
+A longer recording is in [docs/demo.mp4](docs/demo.mp4).
+
+## Stack
+
+Next.js 16 (App Router), React 19, Tailwind CSS v4, TypeScript and the Vercel AI SDK, deployed on Vercel. Jev calls go through Vercel AI Gateway and fall back to the TypeSafe API. Unit tests use the Node test runner.
 
 ## Run it
 
@@ -21,3 +41,7 @@ npm test                     # scoring unit tests
 | `RATE_LIMIT_WINDOW_MS` | Rate limit window | `3600000` |
 
 The API is `POST /api/judge` with `{ "pitch": "..." }`. Pitches must be 20 to 12,000 characters.
+
+## Related
+
+Built alongside [ToneRadar](https://toneradar.vercel.app), [Headline Arena](https://headline-arena-gamma.vercel.app), [FinePrint](https://fineprint-beta.vercel.app) and [fallacy finder](https://fallacy-finder-nine.vercel.app), all on TypeSafe Jev. The first one was [JobFit](https://github.com/Sahilll15/jobfit).
