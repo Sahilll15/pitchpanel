@@ -39,8 +39,11 @@ npm test                     # scoring unit tests
 | `TYPESAFE_API_KEY` | Direct TypeSafe API key, used as fallback | none |
 | `RATE_LIMIT_ANALYZE` | Panels per IP per window | `5` |
 | `RATE_LIMIT_WINDOW_MS` | Rate limit window | `3600000` |
+| `KV_REST_API_URL`, `KV_REST_API_TOKEN` | Upstash Redis that holds the rate limit counts | none |
 
 The API is `POST /api/judge` with `{ "pitch": "..." }`. Pitches must be 20 to 12,000 characters.
+
+Rate limit counts are global across instances because they live in Upstash Redis, keyed per app and per IP, with IPv6 grouped by /64. The window starts at your first counted request. Without the Redis variables (local dev, tests) counts fall back to memory, and if Redis is set but unreachable the API answers 503 rather than letting requests through.
 
 ## Related
 

@@ -108,8 +108,8 @@ export async function POST(req: Request) {
     );
   }
 
-  const gate = check(req, 'analyze');
-  if (!gate.ok) return tooMany(gate.retryAfter);
+  const gate = await check(req, 'analyze');
+  if (!gate.ok) return tooMany(gate);
 
   try {
     const [checks, ...judged] = await Promise.all([askChecks(pitch), ...JUDGES.map((j) => askJudge(pitch, j))]);
