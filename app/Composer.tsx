@@ -40,7 +40,10 @@ export function Composer({
       </nav>
       <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-[26px] leading-tight font-semibold tracking-tight sm:text-[30px]">Put your pitch in front of the panel</h1>
+          <h1 className="text-[26px] leading-tight font-semibold tracking-tight sm:text-[30px]">
+            <span className="sr-only">PitchPanel startup pitch feedback. </span>
+            Put your pitch in front of the panel
+          </h1>
           <p className="text-ink-soft mt-1.5 max-w-[60ch] text-[14.5px] leading-relaxed">
             Paste a one-liner, an elevator pitch or the text of your deck. Five investor archetypes score it on ten
             criteria and tell you who would take the second meeting.
