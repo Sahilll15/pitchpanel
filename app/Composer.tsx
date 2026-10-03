@@ -1,6 +1,7 @@
 'use client';
 
 import { JUDGES } from './lib/panel';
+import { Method } from './Method';
 import { SAMPLES } from './samples';
 import { Icon } from './ui';
 import { JudgeAvatar } from './Report';
@@ -41,7 +42,9 @@ export function Composer({
       <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-[26px] leading-tight font-semibold tracking-tight sm:text-[30px]">
-            <span className="sr-only">PitchPanel startup pitch feedback. </span>
+            <span className="text-brand-deep mb-1.5 block text-[12px] font-semibold tracking-[0.12em] uppercase">
+              Startup pitch feedback
+            </span>
             Put your pitch in front of the panel
           </h1>
           <p className="text-ink-soft mt-1.5 max-w-[60ch] text-[14.5px] leading-relaxed">
@@ -163,6 +166,8 @@ export function Composer({
           ))}
         </div>
       </section>
+
+      <Method />
     </div>
   );
 }

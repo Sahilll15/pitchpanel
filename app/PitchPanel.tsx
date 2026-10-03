@@ -7,6 +7,7 @@ import { SAMPLES } from './samples';
 import { Composer, type Draft } from './Composer';
 import { Report, LoadingReport } from './Report';
 import { HelpDialog } from './HelpDialog';
+import { SiteFooter } from './SiteFooter';
 import { Icon, Logo, Ring } from './ui';
 
 type View = { kind: 'auto' } | { kind: 'new' } | { kind: 'entry'; id: string };
@@ -200,6 +201,7 @@ export default function PitchPanel() {
               />
             )
           )}
+          <SiteFooter />
         </main>
       </div>
 
